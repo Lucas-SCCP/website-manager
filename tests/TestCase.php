@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 namespace Tests;
@@ -87,4 +88,13 @@ class TestCase extends PHPUnit_TestCase
 
         return new SlimRequest($method, $uri, $h, $cookies, $serverParams, $stream);
     }
+=======
+namespace Tests;
+
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+
+abstract class TestCase extends BaseTestCase
+{
+    //
+>>>>>>> 0c71a576c3a6c120dcfdd862bbed78d1dda8eb64
 }
