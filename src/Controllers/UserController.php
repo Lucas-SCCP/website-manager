@@ -8,14 +8,19 @@ class UserController
 {
     private $userRepository;
 
-    public function __construct($db)
+    public function __construct()
     {
-        $this->userRepository = new UserRepository($db);
+        $this->userRepository = new UserRepository();
     }
 
     public function index()
     {
-        $user = $this->userRepository->find(1);
-        return json_encode(['message' => $user]);
+        // $user = $this->userRepository->find(1);
+        return json_encode('teste');
+    }
+
+    public function show($id)
+    {
+        return $this->userRepository->find($id);
     }
 }

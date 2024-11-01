@@ -4,19 +4,18 @@ namespace App\Repositories;
 
 use PDO;
 use App\Models\User;
+use App\Database\Database;
 
 class UserRepository {
     private $db;
 
-    public function __construct(PDO $db) {
-        $this->db = $db;
+    public function __construct() {
+        $this->db = new Database();
     }
 
     public function find($id) {
-        $stmt = $this->db->prepare('SELECT * FROM user WHERE id = 1');
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result ? new User($result) : null;
+        $sql = 'SELECT * FROM users WHERE id = :id';
+        return $this->db->fetchAll($sql, ['id' => $id]);
     }
 
     public function create()

@@ -6,24 +6,9 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
-$config = require __DIR__ . '/../config.php';
-$routes = require __DIR__ . '/../routes.php';
+use App\Routes\Router;
 
-$method = $_SERVER['REQUEST_METHOD'];
-$path = str_replace('/public', '', strtok($_SERVER['REQUEST_URI'], '?'));
-
-$matchedRoute = $routes[$method][$path] ?? null;
-
-if (!$matchedRoute) {
-    http_response_code(404);
-    echo json_encode(['error' => 'Route not found']);
-    exit;
-}
-
-$db = getDatabaseConnection();
-
-[$controller, $method] = explode('@', $matchedRoute);
-$controllerClass = "App\\Controllers\\$controller";
-$controllerInstance = new $controllerClass($db);
-
-echo $controllerInstance->$method();
+$router = new Router();
+$router->get('/users', 'UserController@index');
+$router->get('/users/{id}', 'UserController@show');
+$router->dispatch();
