@@ -3,12 +3,11 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
+
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
-use App\Routes\Router;
+$container = require __DIR__ . '/../config/controllers.php';
+$router = require __DIR__ . '/../config/routes.php';
 
-$router = new Router();
-$router->get('/users', 'UserController@index');
-$router->get('/users/{id}', 'UserController@show');
 $router->dispatch();

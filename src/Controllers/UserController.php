@@ -15,8 +15,8 @@ class UserController
 
     public function index()
     {
-        // $user = $this->userRepository->find(1);
-        return json_encode('teste');
+        $user = $this->userRepository->find(1);
+        return $user;
     }
 
     public function show($id)
