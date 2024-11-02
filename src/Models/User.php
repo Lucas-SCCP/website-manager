@@ -7,17 +7,17 @@ class User {
     public $name;
     public $email;
     public $password;
-    public $created_at;
-    public $updated_at;
-    public $deleted_at;
+    public $createdAt;
+    public $updatedAt;
+    public $deletedAt;
     
     public function __construct(array $data = []) {
         $this->id = $data['id'] ?? null;
         $this->name = $data['name'] ?? '';
         $this->email = $data['email'] ?? '';
         $this->password = $data['password'] ?? '';
-        $this->created_at = $data['created_at'] ?? '';
-        $this->updated_at = $data['updated_at'] ?? '';
-        $this->deleted_at = $data['deleted_at'] ?? '';
+        $this->createdAt = $data['created_at'] ?? '';
+        $this->updatedAt = $data['updated_at'] ?? '';
+        $this->deletedAt = $data['deleted_at'] ?? '';
     }
 }
