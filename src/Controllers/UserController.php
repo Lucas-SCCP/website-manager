@@ -15,8 +15,7 @@ class UserController
 
     public function index()
     {
-        $user = $this->userRepository->find(1);
-        return $user;
+        return $this->userRepository->find(1);
     }
 
     public function show($id)
