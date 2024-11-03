@@ -21,15 +21,18 @@ class UserRepository {
     public function create()
     {
         $sql = 'INSERT INTO users () VALUES ()';
+        return $this->db->fetchAll($sql);
     }
 
     public function update()
     {
         $sql = 'UPDATE users SET name = 1 WHERE id = 1';
+        return $this->db->fetchAll($sql);
     }
 
     public function delete()
     {
         $sql = 'DELETE FROM users WHERE id = 1';
+        return $this->db->fetchAll($sql);
     }
 }
