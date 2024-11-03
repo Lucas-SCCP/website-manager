@@ -20,16 +20,16 @@ class UserRepository {
 
     public function create()
     {
-        // 
+        $sql = 'INSERT INTO users () VALUES ()';
     }
 
     public function update()
     {
-        //
+        $sql = 'UPDATE users SET name = 1 WHERE id = 1';
     }
 
     public function delete()
     {
-        //
+        $sql = 'DELETE FROM users WHERE id = 1';
     }
 }
