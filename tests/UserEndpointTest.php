@@ -10,7 +10,7 @@ class ReservaApiTest extends TestCase
     protected function setUp(): void
     {
         // Configura o cliente HTTP para chamar a API local
-        $this->client = new Client(['base_uri' => 'http://api.website']);
+        $this->client = new Client(['base_uri' => $_ENV['API_URL']]);
     }
 
     public function testGetReservasEndpoint()
