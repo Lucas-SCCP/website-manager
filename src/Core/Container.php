@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use Exception;
+use ReflectionException;
 
 class Container
 {
@@ -17,7 +17,7 @@ class Container
     public function get($name, ...$params)
     {
         if (!isset($this->instances[$name])) {
-            throw new \Exception("Class $name not found in the container");
+            throw new ReflectionException("Class $name not found in the container");
         }
         return new $this->instances[$name](...$params);
     }

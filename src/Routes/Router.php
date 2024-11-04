@@ -92,8 +92,6 @@ class Router
                 echo $response->jsonFormat();
                 return true;
             }
-            $this->prometheus->registerCounterHTTPStatus($statusCode, $path);
-            return false;
         }
     }
 
